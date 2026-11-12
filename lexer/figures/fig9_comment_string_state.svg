@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">图9 注释跳过与格式字符串整体识别示意</title>
+  <desc id="desc">并列展示单行和多行注释的跳过流程，以及格式字符串从双引号开始到配对双引号结束后生成一个 STRCON 的过程。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#52657a" />
+    </marker>
+    <style>
+      text { font-family: "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; fill: #172b3a; }
+      .title { font-size: 30px; font-weight: 700; }
+      .panel-title { font-size: 24px; font-weight: 700; }
+      .label { font-size: 18px; }
+      .small { font-size: 16px; fill: #42566b; }
+      .panel { fill: #f7f9fc; stroke: #cbd5e1; stroke-width: 2; }
+      .node { fill: #ffffff; stroke: #67839a; stroke-width: 2; }
+      .node-blue { fill: #e8f2fb; stroke: #5d8db2; stroke-width: 2; }
+      .node-green { fill: #eaf5ef; stroke: #5c9a78; stroke-width: 2; }
+      .node-amber { fill: #fff4df; stroke: #c08a32; stroke-width: 2; }
+      .arrow { fill: none; stroke: #52657a; stroke-width: 2.5; marker-end: url(#arrow); }
+      .branch { fill: none; stroke: #7b8ea1; stroke-width: 2; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1400" height="760" fill="#ffffff" />
+  <text x="700" y="48" class="title" text-anchor="middle">图9 注释跳过与格式字符串整体识别示意</text>
+
+  <rect x="30" y="78" width="650" height="650" rx="12" class="panel" />
+  <rect x="720" y="78" width="650" height="650" rx="12" class="panel" />
+  <text x="355" y="120" class="panel-title" text-anchor="middle">注释跳过</text>
+  <text x="1045" y="120" class="panel-title" text-anchor="middle">格式字符串扫描</text>
+
+  <rect x="72" y="160" width="185" height="64" rx="10" class="node-blue" />
+  <text x="164" y="199" class="label" text-anchor="middle">扫描到 /</text>
+  <path d="M257 192 H315" class="arrow" />
+  <path d="M362 148 L414 192 L362 236 L310 192 Z" class="node" />
+  <text x="362" y="188" class="small" text-anchor="middle">后一</text>
+  <text x="362" y="208" class="small" text-anchor="middle">字符</text>
+
+  <path d="M414 176 H456 V163 H478" class="branch" />
+  <text x="440" y="151" class="small">/</text>
+  <rect x="482" y="135" width="160" height="58" rx="10" class="node-amber" />
+  <text x="562" y="171" class="label" text-anchor="middle">// 单行注释</text>
+  <path d="M562 193 V213" class="arrow" />
+  <rect x="460" y="216" width="205" height="74" rx="10" class="node" />
+  <text x="562" y="246" class="small" text-anchor="middle">跳至行尾，更新行号</text>
+  <text x="562" y="270" class="small" text-anchor="middle">不生成 token</text>
+  <path d="M460 253 H424 V315 H388" class="arrow" />
+
+  <path d="M414 208 H438 V385 H458" class="branch" />
+  <text x="442" y="340" class="small">*</text>
+  <rect x="462" y="357" width="180" height="58" rx="10" class="node-amber" />
+  <text x="552" y="393" class="label" text-anchor="middle">/* 多行注释</text>
+  <path d="M552 415 V435" class="arrow" />
+  <rect x="442" y="438" width="220" height="80" rx="10" class="node" />
+  <text x="552" y="470" class="small" text-anchor="middle">扫描至 */</text>
+  <text x="552" y="494" class="small" text-anchor="middle">途中逐行更新行号</text>
+  <path d="M442 478 H420 V344 H388" class="arrow" />
+  <rect x="74" y="294" width="310" height="64" rx="10" class="node-green" />
+  <text x="229" y="333" class="label" text-anchor="middle">恢复扫描源程序，不输出注释</text>
+  <rect x="74" y="548" width="310" height="64" rx="10" class="node" />
+  <text x="229" y="587" class="label" text-anchor="middle">不是注释：按 / 运算符处理</text>
+  <path d="M362 236 V264 H229 V294" class="arrow" />
+  <text x="431" y="180" class="small">其余</text>
+  <path d="M414 192 H430 V580 H384" class="branch" />
+
+  <rect x="758" y="174" width="180" height="64" rx="10" class="node-blue" />
+  <text x="848" y="213" class="label" text-anchor="middle">读到起始双引号 "</text>
+  <path d="M938 206 H978" class="arrow" />
+  <rect x="982" y="174" width="190" height="64" rx="10" class="node" />
+  <text x="1077" y="201" class="small" text-anchor="middle">逐字符追加到</text>
+  <text x="1077" y="223" class="small" text-anchor="middle">同一词素</text>
+  <path d="M1172 206 H1202" class="arrow" />
+  <path d="M1250 154 L1300 206 L1250 258 L1200 206 Z" class="node" />
+  <text x="1250" y="200" class="small" text-anchor="middle">配对</text>
+  <text x="1250" y="220" class="small" text-anchor="middle">双引号?</text>
+
+  <path d="M1250 258 V300 H1128 V328" class="branch" />
+  <text x="1262" y="290" class="small">是</text>
+  <rect x="960" y="332" width="340" height="86" rx="10" class="node-green" />
+  <text x="1130" y="369" class="label" text-anchor="middle">整体生成一个 STRCON</text>
+  <text x="1130" y="396" class="small" text-anchor="middle">保留完整字符串词素</text>
+
+  <path d="M1250 154 V145 H1078 V172" class="branch" />
+  <text x="1152" y="138" class="small">否：继续读取</text>
+  <rect x="788" y="492" width="500" height="112" rx="10" class="node-amber" />
+  <text x="1038" y="529" class="label" text-anchor="middle">内部内容不拆成 token</text>
+  <text x="1038" y="558" class="small" text-anchor="middle">%d、逗号、括号都作为字符串字符</text>
+  <text x="1038" y="585" class="small" text-anchor="middle">\n 按转义对留在同一 STRCON 中</text>
+
+  <text x="355" y="684" class="small" text-anchor="middle">注释跳过期间只维护行号，不产生单词记录</text>
+  <text x="1045" y="684" class="small" text-anchor="middle">字符串闭合后才输出单个 STRCON token</text>
+</svg>
