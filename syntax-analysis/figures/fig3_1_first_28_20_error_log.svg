@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1080" role="img" aria-labelledby="title desc">
+  <title id="title">图3.1 CG 平台第一次 28.20 分的错误日志</title>
+  <desc id="desc">根据问题.md中保存的课程平台评测记录整理，展示首次得分、各测试状态和 testfile1 第220项漏掉 UnaryOp 的对照。</desc>
+  <defs>
+    <style>
+      text { font-family: "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; fill: #233244; }
+      .small { font-size: 17px; fill: #68788b; }
+      .body { font-size: 21px; }
+      .head { font-size: 22px; font-weight: 700; }
+      .title { font-size: 30px; font-weight: 700; }
+      .score { font-size: 42px; font-weight: 700; }
+      .mono { font-family: Consolas, "Cascadia Mono", monospace; font-size: 20px; }
+      .card { fill: #ffffff; stroke: #d5dce4; stroke-width: 2; }
+      .line { stroke: #e1e6eb; stroke-width: 2; }
+      .bad { fill: #b42318; }
+      .ok { fill: #188038; }
+      .warn-bg { fill: #fff3f0; }
+      .code-bg { fill: #f5f7fa; }
+    </style>
+  </defs>
+  <rect width="1500" height="1080" fill="#f3f5f7" />
+  <rect x="36" y="32" width="1428" height="1016" rx="8" class="card" />
+
+  <text x="82" y="91" class="title">CG 平台第一次评测记录</text>
+  <text x="82" y="128" class="small">最后一次提交时间：2026-11-11 17:25:03</text>
+  <line x1="82" y1="154" x2="1418" y2="154" class="line" />
+
+  <text x="84" y="220" class="small">得分</text>
+  <text x="84" y="270" class="score">28.20</text>
+  <rect x="258" y="213" width="190" height="54" rx="8" class="warn-bg" stroke="#e6a39a" />
+  <text x="353" y="248" class="head bad" text-anchor="middle">Wrong Answer</text>
+
+  <text x="84" y="324" class="head">测试状态</text>
+  <text x="446" y="324" class="head">status</text>
+  <text x="1050" y="324" class="head">statistics</text>
+  <line x1="82" y1="345" x2="1418" y2="345" class="line" />
+
+  <g class="body">
+    <text x="84" y="387">testfile1</text><text x="446" y="387" class="bad">Wrong Answer</text><text x="1050" y="387">得分比例为 95%</text>
+    <text x="84" y="431">testfile2</text><text x="446" y="431" class="bad">Wrong Answer</text><text x="1050" y="431">得分比例为 80%</text>
+    <text x="84" y="475">testfile3-testfile10</text><text x="446" y="475" class="ok">Accepted（8 个）</text><text x="1050" y="475">-</text>
+    <text x="84" y="519">testfile11</text><text x="446" y="519" class="bad">Wrong Answer</text><text x="1050" y="519">得分比例为 85%</text>
+    <text x="84" y="563">testfile12</text><text x="446" y="563" class="bad">Wrong Answer</text><text x="1050" y="563">得分比例为 95%</text>
+    <text x="84" y="607">testfile13</text><text x="446" y="607" class="bad">Wrong Answer</text><text x="1050" y="607">得分比例为 75%</text>
+    <text x="84" y="651">testfile14</text><text x="446" y="651" class="bad">Wrong Answer</text><text x="1050" y="651">得分比例为 80%</text>
+    <text x="84" y="695">testfile15</text><text x="446" y="695" class="ok">Accepted</text><text x="1050" y="695">-</text>
+  </g>
+  <line x1="82" y1="716" x2="1418" y2="716" class="line" />
+
+  <text x="84" y="765" class="head">testfile1 输出对照（第 220 项）</text>
+  <rect x="82" y="788" width="1336" height="174" rx="6" class="code-bg" />
+  <text x="112" y="830" class="small">No</text>
+  <text x="295" y="830" class="small">Output</text>
+  <text x="690" y="830" class="small">Answer</text>
+  <text x="1090" y="830" class="small">Stderr</text>
+  <line x1="108" y1="844" x2="1390" y2="844" class="line" />
+  <text x="112" y="889" class="mono">220</text>
+  <text x="295" y="889" class="mono bad">&lt;空&gt;</text>
+  <text x="690" y="889" class="mono">&lt;UnaryOp&gt;</text>
+  <text x="1090" y="889" class="mono">&lt;空&gt;</text>
+  <text x="112" y="930" class="small">实际输出漏掉了一元运算符语法成分标记；该行数据取自问题.md 中的原始评测对照。</text>
+
+  <text x="84" y="1007" class="small">记录来源：2026语法分析作业题目 / 问题.md（首次提交评测记录）</text>
+</svg>
