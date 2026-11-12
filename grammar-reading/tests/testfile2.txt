@@ -1,0 +1,43 @@
+const int length = 3, step = 2;
+
+int sumVector(int values[], int count) {
+    int index = 0, total = 0;
+    while (index < count) {
+        total = total + values[index];
+        index = index + 1;
+    }
+    return total;
+}
+
+int offset() {
+    return step;
+}
+
+int join(int first, int second, int third) {
+    return first + second + third;
+}
+
+int main() {
+    printf("U202441730 \n");
+    int values[length];
+    values[0] = getint();
+    values[1] = getint();
+    values[2] = getint();
+    printf("input %d %d %d \n", values[0], values[1], values[2]);
+    printf("sum %d \n", sumVector(values, length));
+    const int coeff[3] = {1, step, 3};
+    printf("constant %d \n", coeff[0] + coeff[1] + coeff[2]);
+    int matrix[2][2] = {{1, 2}, {3, 4}};
+    int preset[2] = {4, 7};
+    printf("matrix %d %d \n", matrix[1][0] + matrix[0][1], preset[0] + preset[1]);
+    printf("calls %d \n", join(sumVector(values, length), offset(), 1));
+    printf("plain \n");
+    values[1] = values[1] + 1;
+    printf("update %d \n", values[1]);
+    values[0] + matrix[0][0];
+    printf("expr %d \n", values[0] + matrix[0][0]);
+    int scalar;
+    scalar = offset();
+    printf("scalar %d \n", scalar);
+    return 0;
+}

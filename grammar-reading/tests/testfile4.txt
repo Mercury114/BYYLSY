@@ -1,0 +1,39 @@
+int state = 5;
+
+void clearState() {
+    state = 0;
+    return;
+}
+
+void emptyTask() {
+}
+
+int difference(int first, int second) {
+    return first - second;
+}
+
+int main() {
+    printf("U202441730 \n");
+    int value = 10;
+    printf("start %d \n", value);
+    {}
+    {
+        int local = 3;
+        value = value + local;
+    }
+    printf("block %d \n", value);
+    value;
+    ;
+    printf("expr %d \n", value);
+    if (value > 10) value = value - 1;
+    printf("if %d \n", value);
+    value = getint();
+    printf("read %d \n", value);
+    clearState();
+    emptyTask();
+    printf("state %d \n", state);
+    printf("call %d \n", difference(value, 2));
+    printf("mod %d \n", value % 4);
+    printf("literal \n");
+    return 0;
+}

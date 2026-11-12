@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 520" role="img" aria-labelledby="title desc">
+  <title id="title">五组输出文件对比终端结果</title>
+  <desc id="desc">运行 compare_outputs.py 的终端输出，五组测试均显示输出与预期一致。</desc>
+  <defs>
+    <style>
+      text { font-family: Consolas, "Cascadia Mono", monospace; }
+      .title { font-family: "Segoe UI", sans-serif; font-size: 18px; fill: #d7e0e8; }
+      .prompt { font-size: 18px; fill: #d7e0e8; }
+      .note { font-size: 16px; fill: #9aa8b6; }
+      .pass { font-size: 23px; fill: #7ee787; }
+      .cursor { fill: #9aa8b6; }
+    </style>
+  </defs>
+  <rect width="1280" height="520" rx="12" fill="#0d1117" />
+  <path d="M12 0 H1268 A12 12 0 0 1 1280 12 V48 H0 V12 A12 12 0 0 1 12 0Z" fill="#202832" />
+  <circle cx="28" cy="24" r="7" fill="#ff6b6b" />
+  <circle cx="52" cy="24" r="7" fill="#f2c14e" />
+  <circle cx="76" cy="24" r="7" fill="#52c878" />
+  <text x="640" y="30" class="title" text-anchor="middle">PowerShell · compare_outputs.py</text>
+
+  <text x="42" y="96" class="prompt">PS ...\2026文法解读作业题目\local-check&gt; python -X utf8 compare_outputs.py</text>
+  <text x="42" y="139" class="note">换行符统一为 LF；行尾空格保留并参与比较</text>
+
+  <text x="42" y="207" class="pass">[PASS] testfile1 输出与预期一致</text>
+  <text x="42" y="258" class="pass">[PASS] testfile2 输出与预期一致</text>
+  <text x="42" y="309" class="pass">[PASS] testfile3 输出与预期一致</text>
+  <text x="42" y="360" class="pass">[PASS] testfile4 输出与预期一致</text>
+  <text x="42" y="411" class="pass">[PASS] testfile5 输出与预期一致</text>
+  <rect x="42" y="454" width="11" height="24" class="cursor" />
+</svg>

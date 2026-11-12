@@ -1,0 +1,10 @@
+U202441730 
+start 10 
+block 13 
+expr 13 
+if 12 
+read 9 
+state 0 
+call 7 
+mod 1 
+literal 

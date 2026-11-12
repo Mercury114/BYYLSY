@@ -1,0 +1,10 @@
+U202441730 
+grid 1 2 3 4 
+row0 3 
+row1 7 
+total 10 
+partial 7 
+raised 12 
+measure 9 
+const2d 10 
+cross 10 

@@ -1,0 +1,10 @@
+U202441730 
+and 4 0 
+or 6 0 
+not 8 2 
+logic 2 2 
+loop 4 6 
+call 63 
+unary 62 
+mod 2 
+tail 0 

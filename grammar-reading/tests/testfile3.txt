@@ -1,0 +1,42 @@
+const int width = 2, weights[2][2] = {{1, 2}, {3, 4}};
+
+int rowSum(int matrix[][width], int row) {
+    return matrix[row][0] + matrix[row][1];
+}
+
+int wholeSum(int matrix[][width]) {
+    return rowSum(matrix, 0) + rowSum(matrix, 1);
+}
+
+int sumRow(int row[]) {
+    return row[0] + row[1];
+}
+
+void raiseFirst(int row[], int amount) {
+    row[0] = row[0] + amount;
+    return;
+}
+
+int measure(int matrix[][width], int row[], int offset) {
+    return matrix[0][0] + row[1] + offset;
+}
+
+int main() {
+    printf("U202441730 \n");
+    int grid[2][width];
+    grid[0][0] = getint();
+    grid[0][1] = getint();
+    grid[1][0] = getint();
+    grid[1][1] = getint();
+    printf("grid %d %d %d %d \n", grid[0][0], grid[0][1], grid[1][0], grid[1][1]);
+    printf("row0 %d \n", rowSum(grid, 0));
+    printf("row1 %d \n", rowSum(grid, 1));
+    printf("total %d \n", wholeSum(grid));
+    printf("partial %d \n", sumRow(grid[1]));
+    raiseFirst(grid[1], 5);
+    printf("raised %d \n", rowSum(grid, 1));
+    printf("measure %d \n", measure(grid, grid[0], 6));
+    printf("const2d %d \n", weights[0][0] + weights[0][1] + weights[1][0] + weights[1][1]);
+    printf("cross %d \n", grid[1][0] + grid[0][1]);
+    return 0;
+}

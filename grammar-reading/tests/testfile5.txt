@@ -1,0 +1,23 @@
+int main() {
+    printf("U202441730 \n");
+    int left = 10, right = 3, state = 0;
+    printf("arithmetic %d \n", (left + right) * (left - right));
+    printf("divmod %d %d \n", left / right, left % right);
+    if (left <= right) state = 1;
+    printf("le %d \n", state);
+    if (left < right) state = 2;
+    else state = state + 3;
+    printf("less %d \n", state);
+    if (left > right) state = state + 4;
+    printf("greater %d \n", state);
+    if (left >= right) state = state + 1;
+    printf("ge %d \n", state);
+    if (left == 10) state = state + 5;
+    printf("equal %d \n", state);
+    if (left != right) state = state + 6;
+    printf("different %d \n", state);
+    if (left > right) state = state + 7;
+    int signedValue = +left + (-right);
+    printf("logic %d \n", state + signedValue);
+    return 0;
+}

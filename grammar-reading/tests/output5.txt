@@ -1,0 +1,10 @@
+U202441730 
+arithmetic 91 
+divmod 3 1 
+le 0 
+less 3 
+greater 7 
+ge 8 
+equal 13 
+different 19 
+logic 33 

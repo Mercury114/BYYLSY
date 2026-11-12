@@ -1,0 +1,50 @@
+const int seed = 3;
+int visits = 0;
+
+int probe(int value) {
+    visits = visits + 1;
+    return value;
+}
+
+int combine(int left, int right) {
+    return left * 10 + right;
+}
+
+int main() {
+    printf("U202441730 \n");
+    int index = 0, total = seed;
+    if (0 && probe(8)) {
+        total = 99;
+    } else {
+        total = total + 1;
+    }
+    printf("and %d %d \n", total, visits);
+    if (1 || probe(7)) {
+        total = total + 2;
+    }
+    printf("or %d %d \n", total, visits);
+    if (!0 && probe(1)) {
+        total = total + probe(2);
+    }
+    printf("not %d %d \n", total, visits);
+    if (total >= 8 && total != 0 || probe(4)) {
+        total = total / 3;
+    }
+    printf("logic %d %d \n", total, visits);
+    while (index < 5) {
+        index = index + 1;
+        if (index == 2) continue;
+        if (index == 4) break;
+        total = total + index;
+    }
+    printf("loop %d %d \n", index, total);
+    total = combine(total, seed);
+    printf("call %d \n", total);
+    total = total + (-3);
+    total = total + (+2);
+    printf("unary %d \n", total);
+    if (total == 62) total = total % 5;
+    printf("mod %d \n", total);
+    printf("tail %d \n", 0);
+    return 0;
+}
