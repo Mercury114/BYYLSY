@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1040" role="img" aria-labelledby="title desc">
+  <title id="title">图4.2 COMPILER_IR_BEFORE 导出的四元式与优化前后 MIPS 行数对比</title>
+  <desc id="desc">算术测试用例在优化前有19条四元式和75行MIPS，删除一条自赋值后有18条四元式和73行MIPS，MARS运行结果一致。</desc>
+  <defs>
+    <style>
+      text { font-family: "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; fill: #182b3a; }
+      .title { font-size: 32px; font-weight: 700; }
+      .section { font-size: 22px; font-weight: 700; }
+      .label { font-size: 18px; font-weight: 600; }
+      .small { font-size: 16px; fill: #607286; }
+      .mono { font-family: Consolas, "Cascadia Mono", monospace; font-size: 16px; fill: #24364a; }
+      .metric { font-size: 26px; font-weight: 700; }
+      .card { fill: #ffffff; stroke: #d6dfe7; stroke-width: 2; }
+      .code { fill: #f4f7fa; stroke: #dce4eb; stroke-width: 1; }
+      .axis { stroke: #8b9baa; stroke-width: 2; }
+      .grid { stroke: #e1e7ed; stroke-width: 1; }
+      .before { fill: #39769b; }
+      .after { fill: #258b76; }
+      .removed { fill: #a54435; }
+      .soft-red { fill: #faeeeb; }
+      .soft-green { fill: #eaf5f1; }
+      .soft-blue { fill: #edf4f8; }
+    </style>
+  </defs>
+  <rect width="1600" height="1040" fill="#f3f6f8" />
+  <text x="800" y="62" class="title" text-anchor="middle">图4.2  COMPILER_IR_BEFORE 导出的四元式与优化前后 MIPS 行数对比</text>
+  <text x="800" y="98" class="small" text-anchor="middle">算术回归用例 · 优化删除冗余自赋值 · 行数按生成文件中的非空行统计</text>
+
+  <rect x="50" y="128" width="1500" height="100" rx="8" class="card" />
+  <rect x="72" y="150" width="430" height="56" rx="6" class="soft-blue" />
+  <text x="92" y="185" class="label">四元式</text>
+  <text x="246" y="187" class="metric" fill="#39769b">19</text>
+  <text x="290" y="185" class="label">→</text>
+  <text x="338" y="187" class="metric" fill="#258b76">18</text>
+  <text x="418" y="185" class="small">−1 条</text>
+  <rect x="522" y="150" width="430" height="56" rx="6" class="soft-green" />
+  <text x="542" y="185" class="label">MIPS 非空行</text>
+  <text x="710" y="187" class="metric" fill="#39769b">75</text>
+  <text x="754" y="185" class="label">→</text>
+  <text x="802" y="187" class="metric" fill="#258b76">73</text>
+  <text x="878" y="185" class="small">−2 行</text>
+  <text x="1000" y="171" class="small">两种版本均由 MARS 4.5 运行</text>
+  <text x="1000" y="196" class="label">输出相同：x=11, y=3；4</text>
+
+  <rect x="50" y="252" width="920" height="600" rx="8" class="card" />
+  <text x="82" y="294" class="section">四元式文件摘录</text>
+  <text x="82" y="324" class="small">相同位置对照：优化器移除了仅有的一条变量自赋值</text>
+
+  <text x="86" y="371" class="label" fill="#39769b">COMPILER_IR_BEFORE · 优化前</text>
+  <rect x="80" y="390" width="860" height="184" rx="6" class="code" />
+  <text x="104" y="424" class="mono">5: (SUB, @v2, %2, %3)</text>
+  <text x="104" y="456" class="mono">6: (ASSIGN, %3, _, @v0)</text>
+  <rect x="96" y="469" width="824" height="36" rx="4" class="soft-red" />
+  <text x="104" y="494" class="mono removed">7: (ASSIGN, @v0, _, @v0)    ← 被删除的自赋值</text>
+  <text x="104" y="538" class="mono">8: (PRINT_STRING, s0, _, _)</text>
+  <text x="104" y="563" class="mono">9: (PRINT_INT, @v0, _, _)</text>
+
+  <text x="86" y="623" class="label" fill="#258b76">COMPILER_IR_AFTER · 优化后</text>
+  <rect x="80" y="642" width="860" height="174" rx="6" class="code" />
+  <text x="104" y="678" class="mono">5: (SUB, @v2, %2, %3)</text>
+  <text x="104" y="711" class="mono">6: (ASSIGN, %3, _, @v0)</text>
+  <text x="104" y="744" class="mono">7: (PRINT_STRING, s0, _, _)</text>
+  <text x="104" y="777" class="mono">8: (PRINT_INT, @v0, _, _)</text>
+  <text x="540" y="744" class="small">后续四元式序号前移</text>
+
+  <rect x="995" y="252" width="555" height="600" rx="8" class="card" />
+  <text x="1027" y="294" class="section">MIPS 文件行数</text>
+  <text x="1027" y="324" class="small">同一算术测试程序，0–80 行比例尺</text>
+
+  <line x1="1082" y1="700" x2="1488" y2="700" class="axis" />
+  <line x1="1082" y1="380" x2="1082" y2="700" class="axis" />
+  <line x1="1082" y1="620" x2="1488" y2="620" class="grid" />
+  <line x1="1082" y1="540" x2="1488" y2="540" class="grid" />
+  <line x1="1082" y1="460" x2="1488" y2="460" class="grid" />
+  <line x1="1082" y1="380" x2="1488" y2="380" class="grid" />
+  <text x="1060" y="706" class="small" text-anchor="end">0</text>
+  <text x="1060" y="626" class="small" text-anchor="end">20</text>
+  <text x="1060" y="546" class="small" text-anchor="end">40</text>
+  <text x="1060" y="466" class="small" text-anchor="end">60</text>
+  <text x="1060" y="386" class="small" text-anchor="end">80</text>
+
+  <rect x="1135" y="400" width="112" height="300" rx="5" class="before" />
+  <rect x="1320" y="408" width="112" height="292" rx="5" class="after" />
+  <text x="1191" y="386" class="metric" text-anchor="middle" fill="#39769b">75</text>
+  <text x="1376" y="394" class="metric" text-anchor="middle" fill="#258b76">73</text>
+  <text x="1191" y="736" class="label" text-anchor="middle">优化前</text>
+  <text x="1376" y="736" class="label" text-anchor="middle">优化后</text>
+  <rect x="1106" y="778" width="18" height="18" rx="3" class="before" />
+  <text x="1134" y="793" class="small">优化前</text>
+  <rect x="1255" y="778" width="18" height="18" rx="3" class="after" />
+  <text x="1283" y="793" class="small">优化后</text>
+
+  <rect x="50" y="878" width="1500" height="112" rx="8" class="card" />
+  <text x="82" y="919" class="label">验证结果</text>
+  <text x="82" y="954" class="small">优化前 MIPS：x=11, y=3；4</text>
+  <text x="520" y="954" class="small">优化后 MIPS：x=11, y=3；4</text>
+  <text x="1030" y="954" class="small">四元式文件与汇编均由同一测试用例生成</text>
+  <text x="800" y="1020" class="small" text-anchor="middle">计数来源：evidence/ir-before.txt、ir-after.txt、mips-before.asm、mips-after.asm</text>
+</svg>

@@ -1,0 +1,25 @@
+.data
+.align 2
+v0: .word 0
+s0: .byte 72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100, 0
+s1: .byte 10, 0
+.text
+.globl main
+main:
+la $a0, s0
+li $v0, 4
+syscall
+la $a0, s1
+li $v0, 4
+syscall
+li $v0, 5
+syscall
+sw $v0, v0
+lw $a0, v0
+li $v0, 1
+syscall
+la $a0, s1
+li $v0, 4
+syscall
+li $v0, 10
+syscall
